@@ -11,7 +11,12 @@ Class PrintNavigation extends GetNavigation {
     return $rolesUsers;
   }
   public function bandeauHaut($variable){
-    echo '<nav class="nav"><ul class="navigationBandeau">';
+    echo '<div class="menu-btn">
+              <div class="btn-line"></div>
+              <div class="btn-line"></div>
+              <div class="btn-line"></div>
+          </div>';
+    echo '<nav class="nav menu"><ul class="navigationBandeau">';
       foreach ($variable as $key => $value) {
         if(($value['zoneMenu'] == 0)&&($value['deroulant'] == 0)) {
           echo '<li><a href="index.php?idNav='.$value['targetRoute'].'">'.$value['nomNav'].'</a></li>';
@@ -27,7 +32,14 @@ Class PrintNavigation extends GetNavigation {
           echo '</div>';
         }
       }
-    echo '</ul></nav>';
+    echo '</ul></nav>
+    <script>
+    const menuBtn = document.querySelector(\'.menu-btn\');
+      const menu = document.querySelector(\'.menu\');
+      menuBtn.addEventListener(\'click\', () => {
+          menu.classList.toggle(\'active\');
+      });
+    </script>';
   }
   public function selectZoneMenu($variable) {
     echo '<label for="zoneMenu">Zone du menu</label>
