@@ -1,11 +1,13 @@
 <?php
 function brassageDate($data) {
-$date = $data;
-$year = substr($date,0,4);
-$month = substr($date,5,2);
-$day = substr($date,8,2);
-$date = $day.'/'.$month.'/'.$year;
-return $date;
+setlocale(LC_ALL, "fr_FR");
+  $dateDay = new DateTime($data);
+  $formatter = new IntlDateFormatter(
+    "fr_FR",
+    IntlDateFormatter::FULL,
+    IntlDateFormatter::NONE
+  );
+  return $formatter->format($dateDay);
 }
 function heure($data) {
   $time = $data;

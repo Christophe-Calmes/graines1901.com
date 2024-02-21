@@ -295,25 +295,39 @@ nav {
   color: var(--main-color);
   text-decoration: none;
 }
-
+.smartPhone {
+  display: none;
+}
 @media only screen and (max-width: 768px) {
+  h1 {
+    display : none;
+  }
+  h2 {
+    display: none;
+  }
+  .smartPhone {
+    display: block;
+  }
   .menu {
       display: none;
   }
 
   .menu-btn {
       display: flex;
+      background-color: var(--main-background-navBar);
+      padding: 1em;
+      margin-left: 0;
   }
 
   .menu.active {
       display: flex;
       flex-direction: column;
       position: absolute;
-      width: 100%;
+      width: auto;
       background-color: var(--main-background-color);
-      top: 100%;
+      top: 10%;
       left: 0;
-      border: #151515 solid 10px;
+      border: var(--main-background-MagicForm) solid 10px;
   }
 
   .menu.active ul {
